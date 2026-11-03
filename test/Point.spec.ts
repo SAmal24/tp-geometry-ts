@@ -44,4 +44,24 @@ describe("test Point", () => {
         expect(p.isEmpty()).to.equal(true);
     });
 
+    it("test clone", () => {
+        const p1 = new Point([3, 4]);
+        const p2 = p1.clone();
+
+        p2.translate(2, 3);
+
+        expect(p1.x()).to.equal(3);
+        expect(p1.y()).to.equal(4);
+
+        expect(p2.x()).to.equal(5);
+        expect(p2.y()).to.equal(7);
+    });
+
+    it("test clone empty point", () => {
+        const p1 = new Point();
+        const p2 = p1.clone();
+
+        expect(p2.isEmpty()).to.equal(true);
+    });
+
 });

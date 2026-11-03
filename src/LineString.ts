@@ -32,4 +32,14 @@ export default class LineString implements Geometry {
             this.points[i].translate(dx, dy);
         }
     }
+    
+    clone(): LineString {
+        const copie: Point[] = [];
+
+        for (let i = 0; i < this.points.length; i++) {
+            copie.push(this.points[i].clone());
+        }
+
+        return new LineString(copie);
+    }
 }

@@ -47,4 +47,27 @@ describe("test LineString", () => {
         expect(line.isEmpty()).to.equal(true);
     });
 
+    it("test clone", () => {
+        const p1 = new Point([1, 2]);
+        const p2 = new Point([3, 4]);
+
+        const line1 = new LineString([p1, p2]);
+        const line2 = line1.clone();
+
+        line2.translate(2, 3);
+
+        expect(line1.getPointN(0).x()).to.equal(1);
+        expect(line1.getPointN(0).y()).to.equal(2);
+
+        expect(line2.getPointN(0).x()).to.equal(3);
+        expect(line2.getPointN(0).y()).to.equal(5);
+    });
+
+    it("test clone empty line", () => {
+        const line1 = new LineString();
+        const line2 = line1.clone();
+
+        expect(line2.isEmpty()).to.equal(true);
+    });
+
 });

@@ -36,11 +36,15 @@ export default class Point implements Geometry {
         }
         return false;
     }
-    
+
     translate(dx: number, dy: number): void {
         if (!this.isEmpty()) {
             this.coordinate[0] = this.coordinate[0] + dx;
             this.coordinate[1] = this.coordinate[1] + dy;
         }
+    }
+    
+    clone(): Point {
+        return new Point([...this.coordinate]);
     }
 }
