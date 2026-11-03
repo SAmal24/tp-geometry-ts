@@ -26,4 +26,10 @@ export default class LineString implements Geometry {
         }
         return false;
     }
+
+    translate(dx: number, dy: number): void {
+        for (let i = 0; i < this.points.length; i++) {
+            this.points[i].translate(dx, dy);
+        }
+    }
 }

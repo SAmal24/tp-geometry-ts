@@ -24,4 +24,27 @@ describe("test LineString", () => {
         expect(line.isEmpty()).to.equal(false);
     });
 
+    it("test translate", () => {
+        const p1 = new Point([1, 2]);
+        const p2 = new Point([3, 4]);
+
+        const line = new LineString([p1, p2]);
+
+        line.translate(2, 3);
+
+        expect(line.getPointN(0).x()).to.equal(3);
+        expect(line.getPointN(0).y()).to.equal(5);
+
+        expect(line.getPointN(1).x()).to.equal(5);
+        expect(line.getPointN(1).y()).to.equal(7);
+    });
+
+    it("test translate empty line", () => {
+        const line = new LineString();
+
+        line.translate(2, 3);
+
+        expect(line.isEmpty()).to.equal(true);
+    });
+
 });
