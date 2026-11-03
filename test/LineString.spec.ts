@@ -9,6 +9,7 @@ describe("test LineString", () => {
 
         expect(line.getType()).to.equal("LineString");
         expect(line.getNumPoints()).to.equal(0);
+        expect(line.isEmpty()).to.equal(true);
     });
 
     it("test constructor with points", () => {
@@ -20,6 +21,7 @@ describe("test LineString", () => {
         expect(line.getNumPoints()).to.equal(2);
         expect(line.getPointN(0)).to.equal(p1);
         expect(line.getPointN(1)).to.equal(p2);
+        expect(line.isEmpty()).to.equal(false);
     });
 
 });

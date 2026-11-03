@@ -2,9 +2,9 @@ import Coordinate from "./Coordinate";
 import Geometry from "./Geometry";
 
 export default class Point implements Geometry {
-    private coordinate?: Coordinate;
+    private coordinate: Coordinate;
 
-    constructor(coordinate?: Coordinate) {
+    constructor(coordinate: Coordinate = []) {
         this.coordinate = coordinate;
     }
 
@@ -13,14 +13,27 @@ export default class Point implements Geometry {
     }
 
     x(): number {
-        return this.coordinate ? this.coordinate[0] : Number.NaN;
+        if (this.coordinate.length == 0) {
+            return Number.NaN;
+        }
+        return this.coordinate[0];
     }
 
     y(): number {
-        return this.coordinate ? this.coordinate[1] : Number.NaN;
+        if (this.coordinate.length == 0) {
+            return Number.NaN;
+        }
+        return this.coordinate[1];
     }
 
     getType(): string {
         return "Point";
+    }
+
+    isEmpty(): boolean {
+        if (this.coordinate.length == 0) {
+            return true;
+        }
+        return false;
     }
 }
