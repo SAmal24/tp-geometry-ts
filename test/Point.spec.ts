@@ -64,4 +64,12 @@ describe("test Point", () => {
         expect(p2.isEmpty()).to.equal(true);
     });
 
+    it("test getEnvelope", () => {
+        const p = new Point([3, 4]);
+
+        const env = p.getEnvelope();
+
+        expect(env.toString()).to.equal("[3,4,3,4]");
+    });
+
 });

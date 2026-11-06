@@ -70,4 +70,16 @@ describe("test LineString", () => {
         expect(line2.isEmpty()).to.equal(true);
     });
 
+    it("test getEnvelope", () => {
+        const p1 = new Point([0, 1]);
+        const p2 = new Point([2, 0]);
+        const p3 = new Point([1, 3]);
+
+        const line = new LineString([p1, p2, p3]);
+
+        const env = line.getEnvelope();
+
+        expect(env.toString()).to.equal("[0,0,2,3]");
+    });
+
 });
